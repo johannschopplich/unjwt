@@ -1,7 +1,7 @@
 {
   "name": "unjwt",
   "type": "module",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "packageManager": "pnpm@8.6.12",
   "description": "Easy creation and verification of JSON Web Tokens (JWT)",
   "author": "Johann Schopplich <pkg@johannschopplich.com>",
