@@ -15,13 +15,13 @@ Run the following command to add `unjwt` to your project.
 
 ```bash
 # pnpm
-pnpm add -D unjwt
+pnpm add unjwt
 
 # npm
-npm install -D unjwt
+npm install unjwt
 
 # yarn
-yarn add -D unjwt
+yarn add unjwt
 ```
 
 ## Usage
