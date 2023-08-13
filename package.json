@@ -1,0 +1,50 @@
+{
+  "name": "unjwt",
+  "type": "module",
+  "version": "1.0.0",
+  "packageManager": "pnpm@8.6.12",
+  "description": "Easy creation and verification of JSON Web Tokens (JWT)",
+  "author": "Johann Schopplich <pkg@johannschopplich.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/johannschopplich/unjwt#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johannschopplich/unjwt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/johannschopplich/unjwt/issues"
+  },
+  "keywords": [
+    "cloudflare",
+    "jwt",
+    "serverless",
+    "token",
+    "worker"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "release": "bumpp --commit --push --tag",
+    "test:types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.40.2",
+    "bumpp": "^9.1.1",
+    "eslint": "^8.47.0",
+    "typescript": "^5.1.6",
+    "unbuild": "^2.0.0-rc.0"
+  }
+}
