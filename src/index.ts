@@ -12,6 +12,12 @@ import type { JWTRegisteredClaims } from './types'
 
 export { JWTRegisteredClaims }
 
+const signatureMap: Record<string, string> = {
+  HMAC: 'HS',
+  RSA: 'RS',
+  ECDSA: 'ES',
+}
+
 export async function signJWT<
   T extends Record<string, any> = Record<string, any>,
 >({
@@ -20,7 +26,6 @@ export async function signJWT<
   issuer,
   audience,
   expires = 30,
-  header = { typ: 'JWT', alg: 'HS256' },
   signatureMethod = DEFAULT_SIGNATURE_METHOD,
   hashMethod = DEFAULT_HASH_METHODS,
 }: {
@@ -33,8 +38,6 @@ export async function signJWT<
    * @default 30
    */
   expires?: number
-  /** @default { typ: 'JWT', alg: 'HS256' } */
-  header?: Record<string, any>
   /** @default 'HMAC' */
   signatureMethod?: string
   /** @default 'SHA-256' */
@@ -45,6 +48,10 @@ export async function signJWT<
     name: signatureMethod,
     hash: hashMethod,
   })
+  const header = {
+    typ: 'JWT',
+    alg: `${signatureMap[signatureMethod]}${hashMethod.split('-')[1]}`,
+  }
   const iat = Math.floor(Date.now() / 1000)
   const exp = iat + expires * 24 * 60 * 60
   const jwtPayload: JWTRegisteredClaims & T = {
