@@ -27,7 +27,7 @@ yarn add unjwt
 ## Usage
 
 ```ts
-import { signJWT, verifyJWT } from 'unjwt'
+import { decodeJWT, signJWT, verifyJWT } from 'unjwt'
 
 interface JWTUserClaims {
   email: string
