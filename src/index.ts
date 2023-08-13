@@ -24,7 +24,7 @@ export async function signJWT<
   signatureMethod = DEFAULT_SIGNATURE_METHOD,
   hashMethod = DEFAULT_HASH_METHODS,
 }: {
-  payload: T
+  payload?: T
   secret: string
   issuer: string
   audience: string
