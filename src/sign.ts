@@ -15,15 +15,7 @@ const headerAlgMap: Record<string, string> = {
 
 export async function signJWT<
   T extends Record<string, any> = Record<string, any>,
->({
-  payload = {} as T,
-  secret,
-  issuer,
-  audience,
-  expires = 30,
-  signatureMethod = DEFAULT_SIGNATURE_METHOD,
-  hashMethod = DEFAULT_HASH_METHODS,
-}: {
+>(options: {
   payload?: T
   secret: string
   issuer: string
@@ -38,6 +30,16 @@ export async function signJWT<
   /** @default 'SHA-256' */
   hashMethod?: string
 }) {
+  const {
+    payload = {} as T,
+    secret,
+    issuer,
+    audience,
+    expires = 30,
+    signatureMethod = DEFAULT_SIGNATURE_METHOD,
+    hashMethod = DEFAULT_HASH_METHODS,
+  } = { ...options }
+
   const key = await importKey({
     secret,
     name: signatureMethod,

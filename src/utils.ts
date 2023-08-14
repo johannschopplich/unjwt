@@ -12,17 +12,19 @@ export async function createSignature(
   return encodeToBase64Url(signature)
 }
 
-export async function importKey({
-  secret,
-  usage = 'sign',
-  name = DEFAULT_SIGNATURE_METHOD,
-  hash = DEFAULT_HASH_METHODS,
-}: {
+export async function importKey(options: {
   secret: string
   usage?: 'sign' | 'verify'
   name: string
   hash: string
 }) {
+  const {
+    secret,
+    usage = 'sign',
+    name = DEFAULT_SIGNATURE_METHOD,
+    hash = DEFAULT_HASH_METHODS,
+  } = { ...options }
+
   const encodedKey = textEncoder.encode(secret)
   return await crypto.subtle.importKey(
     'raw',

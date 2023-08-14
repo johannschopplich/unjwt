@@ -8,15 +8,7 @@ import {
 } from './utils'
 import type { JWTRegisteredClaims } from './types'
 
-export async function verifyJWT({
-  token,
-  secret,
-  issuer,
-  audience,
-  leeway = 60,
-  signatureMethod = DEFAULT_SIGNATURE_METHOD,
-  hashMethod = DEFAULT_HASH_METHODS,
-}: {
+export async function verifyJWT(options: {
   token: string
   secret: string
   issuer: string
@@ -28,7 +20,17 @@ export async function verifyJWT({
   /** @default 'SHA-256' */
   hashMethod?: string
 }) {
-  const [header, payload, signature] = token.split('.')
+  const {
+    token,
+    secret,
+    issuer,
+    audience,
+    leeway = 60,
+    signatureMethod = DEFAULT_SIGNATURE_METHOD,
+    hashMethod = DEFAULT_HASH_METHODS,
+  } = { ...options }
+
+  const [header, payload, signature] = String(token).split('.')
   const key = await importKey({
     secret,
     usage: 'verify',
