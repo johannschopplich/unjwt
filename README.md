@@ -6,8 +6,8 @@ You may just use [Jose](https://github.com/panva/jose) or one of the other libra
 
 ## Features
 
-- 💨 Zero dependencies
-- 📦 Works in every context supporting the Web Crypto API
+- 📦 Works in Node, browser and workers
+- 💨 Zero dependencies except [`uncrypto`](https://github.com/unjs/uncrypto) for conditional Web Crypto API support
 
 ## Installation
 

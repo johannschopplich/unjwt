@@ -1,3 +1,4 @@
+import { subtle } from 'uncrypto'
 import {
   DEFAULT_HASH_METHODS,
   DEFAULT_SIGNATURE_METHOD,
@@ -38,7 +39,7 @@ export async function verifyJWT(options: {
     hash: hashMethod,
   })
 
-  const isValid = await crypto.subtle.verify(
+  const isValid = await subtle.verify(
     signatureMethod,
     key,
     decodeFromBase64UrlToBuffer(signature),

@@ -1,3 +1,5 @@
+import { subtle } from 'uncrypto'
+
 export const DEFAULT_SIGNATURE_METHOD = 'HMAC'
 export const DEFAULT_HASH_METHODS = 'SHA-256'
 export const textEncoder = new TextEncoder()
@@ -8,7 +10,7 @@ export async function createSignature(
   data: string,
 ) {
   const encoded = textEncoder.encode(data)
-  const signature = await crypto.subtle.sign(algorithm, key, encoded)
+  const signature = await subtle.sign(algorithm, key, encoded)
   return encodeToBase64Url(signature)
 }
 
@@ -26,7 +28,7 @@ export async function importKey(options: {
   } = { ...options }
 
   const encodedKey = textEncoder.encode(secret)
-  return await crypto.subtle.importKey(
+  return await subtle.importKey(
     'raw',
     encodedKey,
     { name, hash },
