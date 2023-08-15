@@ -1,4 +1,5 @@
-import { subtle } from 'uncrypto'
+// @ts-expect-error: export conditions for single API
+import { subtle } from 'unjwt/crypto'
 import {
   DEFAULT_HASH_METHODS,
   DEFAULT_SIGNATURE_METHOD,
