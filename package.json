@@ -24,7 +24,7 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
     },
     "./crypto": {
@@ -40,14 +40,14 @@
       "worker": "./dist/crypto/web.mjs",
       "workerd": "./dist/crypto/web.mjs",
       "node": {
-        "types": "./dist/crypto/node.d.ts",
+        "types": "./dist/crypto/node.d.mts",
         "import": "./dist/crypto/node.mjs"
       },
-      "types": "./dist/crypto/web.d.ts",
+      "types": "./dist/crypto/web.d.mts",
       "import": "./dist/crypto/web.mjs"
     }
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
@@ -60,11 +60,11 @@
     "test:types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.40.2",
-    "@types/node": "^20.5.0",
-    "bumpp": "^9.1.1",
-    "eslint": "^8.47.0",
-    "typescript": "^5.1.6",
-    "unbuild": "^2.0.0-rc.0"
+    "@antfu/eslint-config": "^0.41.0",
+    "@types/node": "^20.5.6",
+    "bumpp": "^9.2.0",
+    "eslint": "^8.48.0",
+    "typescript": "^5.2.2",
+    "unbuild": "^2.0.0"
   }
 }
