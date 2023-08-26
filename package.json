@@ -48,7 +48,17 @@
     }
   },
   "types": "./dist/index.d.mts",
-  "files": [
+  "typesVersions": {
+    "*": {
+      "*": [
+        "*",
+        "dist/*",
+        "dist/*.d.ts",
+        "dist/*/index.d.ts"
+      ]
+    }
+  },
+ "files": [
     "dist"
   ],
   "scripts": {
