@@ -1,3 +1,4 @@
+// @ts-expect-error: export conditions for single API
 import { subtle } from 'unjwt/crypto'
 
 export const DEFAULT_SIGNATURE_METHOD = 'HMAC'
