@@ -2,7 +2,7 @@
   "name": "unjwt",
   "type": "module",
   "version": "0.2.1",
-  "packageManager": "pnpm@8.6.12",
+  "packageManager": "pnpm@8.8.0",
   "description": "Easy creation and verification of JSON Web Tokens (JWT)",
   "author": "Johann Schopplich <pkg@johannschopplich.com>",
   "license": "MIT",
@@ -25,7 +25,15 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
-      "import": "./dist/index.mjs"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "default": "./dist/index.mjs"
     },
     "./crypto": {
       "browser": "./dist/crypto/web.mjs",
@@ -40,14 +48,30 @@
       "worker": "./dist/crypto/web.mjs",
       "workerd": "./dist/crypto/web.mjs",
       "node": {
-        "types": "./dist/crypto/node.d.mts",
-        "import": "./dist/crypto/node.mjs"
+        "import": {
+          "types": "./dist/crypto/node.d.mts",
+          "default": "./dist/crypto/node.mjs"
+        },
+        "require": {
+          "types": "./dist/crypto/node.d.cts",
+          "default": "./dist/crypto/node.cjs"
+        }
       },
       "types": "./dist/crypto/web.d.mts",
-      "import": "./dist/crypto/web.mjs"
+      "import": {
+        "types": "./dist/crypto/web.d.mts",
+        "default": "./dist/crypto/web.mjs"
+      },
+      "require": {
+        "types": "./dist/crypto/web.d.cts",
+        "default": "./dist/crypto/web.cjs"
+      },
+      "default": "./dist/crypto/web.mjs"
     }
   },
-  "types": "./dist/index.d.mts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
       "*": [
@@ -70,11 +94,11 @@
     "test:types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.41.0",
-    "@types/node": "^20.5.6",
+    "@antfu/eslint-config": "^1.0.0-beta.17",
+    "@types/node": "^20.7.1",
     "bumpp": "^9.2.0",
-    "eslint": "^8.48.0",
-    "typescript": "^5.1.6",
+    "eslint": "^8.50.0",
+    "typescript": "^5.2.2",
     "unbuild": "^2.0.0"
   }
 }

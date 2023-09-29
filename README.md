@@ -61,7 +61,7 @@ catch (error) {
 }
 
 // Decode a JWT – does not verify the signature
-const decodedAccessToken = await decodeJWT<JWTUserClaims>(accessToken)
+const decodedAccessToken = decodeJWT<JWTUserClaims>(accessToken)
 console.log(decodedAccessToken.email)
 ```
 

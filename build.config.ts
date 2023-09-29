@@ -5,4 +5,7 @@ export default defineBuildConfig({
   clean: true,
   declaration: true,
   externals: ['unjwt/crypto'],
+  rollup: {
+    emitCJS: true,
+  },
 })
