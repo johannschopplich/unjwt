@@ -2,7 +2,7 @@
   "name": "unjwt",
   "type": "module",
   "version": "0.3.0",
-  "packageManager": "pnpm@8.8.0",
+  "packageManager": "pnpm@8.10.2",
   "description": "Easy creation and verification of JSON Web Tokens (JWT)",
   "author": "Johann Schopplich <pkg@johannschopplich.com>",
   "license": "MIT",
@@ -94,10 +94,10 @@
     "test:types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^1.0.0-beta.17",
-    "@types/node": "^20.7.1",
+    "@antfu/eslint-config": "^1.1.0",
+    "@types/node": "^20.8.10",
     "bumpp": "^9.2.0",
-    "eslint": "^8.50.0",
+    "eslint": "^8.53.0",
     "typescript": "^5.2.2",
     "unbuild": "^2.0.0"
   }
