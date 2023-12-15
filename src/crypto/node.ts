@@ -1,6 +1,6 @@
 import nodeCrypto from 'node:crypto'
 
-export const subtle: Crypto['subtle'] = nodeCrypto.webcrypto?.subtle || {}
+export const subtle = (nodeCrypto.webcrypto?.subtle || {}) as Crypto['subtle']
 
 export const randomUUID: Crypto['randomUUID'] = () => {
   return nodeCrypto.randomUUID()

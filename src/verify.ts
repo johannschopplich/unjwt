@@ -63,9 +63,7 @@ export async function verifyJWT(options: {
 
   if (
     issuer !== decodedPayload.iss
-    || (Array.isArray(decodedPayload.aud)
-      ? !decodedPayload.aud.includes(audience)
-      : audience !== decodedPayload.aud)
+    || (Array.isArray(decodedPayload.aud) ? !decodedPayload.aud.includes(audience) : audience !== decodedPayload.aud)
     || (decodedPayload.exp && now > decodedPayload.exp + leeway)
     || (decodedPayload.nbf && now < decodedPayload.nbf - leeway)
   )
