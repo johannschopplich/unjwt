@@ -1,6 +1,11 @@
 # unjwt
 
-> Easy creation and verification of JSON Web Tokens (JWT).
+> [!NOTE]
+> I'm using [oslo/jwt](https://oslo.js.org/reference/jwt/) now. It's runtime-agnostic just like `unjwt`, has more features and is more actively maintained. I highly recommend it!
+>
+> This library is no longer maintained.
+
+Easy creation and verification of JSON Web Tokens (JWT).
 
 You may just use [Jose](https://github.com/panva/jose) or one of the other libraries out there. But I wanted to take my shot at creating a JWT library that is easy to use and has zero dependencies.
 
